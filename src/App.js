@@ -22,8 +22,8 @@ export default class App extends Component {
     return (
       <div className={styles.container}>
         <Cards data={data} />
+        <CountryPicker />
         <Report />
-        {/* <CountryPicker /> */}
       </div>
     )
   }
