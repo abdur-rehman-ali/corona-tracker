@@ -49,7 +49,7 @@ const Report = ({
           {
             label: country,
             data: [confirmed.value, deaths.value],
-            backgroundColor: ["blue", "red"],
+            backgroundColor: ["rgba(0,0,255,0.5)", "rgba(255,0,0,0.5)"],
             borderWidth: 0.5,
           },
         ],
