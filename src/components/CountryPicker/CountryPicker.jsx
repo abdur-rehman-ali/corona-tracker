@@ -13,6 +13,7 @@ const CountryPicker = ({ handleCountryChange }) => {
 
   return (
     <>
+      <h1>Select a country</h1>
       <FormControl>
         <NativeSelect
           defaultValue=""
