@@ -1,8 +1,6 @@
 import React from 'react'
 
-const Chart = (props) => {
-  const {data} = props
-  console.log(data);
+const Chart = () => {
   return (
     <div>Chart</div>
   )

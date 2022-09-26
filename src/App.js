@@ -21,8 +21,8 @@ export default class App extends Component {
     const { data } = this.state
     return (
       <div className={styles.container}>
-        <Chart data={data} />
-        <Cards />
+        <Cards data={data} />
+        <Chart />
         <CountryPicker />
       </div>
     )
