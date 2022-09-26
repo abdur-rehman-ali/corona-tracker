@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { fetchDailyData } from "../../api";
-import { Line } from "react-chartjs-2";
+import { Line, Bar } from "react-chartjs-2";
 import styles from "./Report.module.css";
 import { Chart, registerables } from "chart.js";
 Chart.register(...registerables);
 
-const Report = () => {
+const Report = ({
+  data: { confirmed, deaths, recovered, lastUpdate },
+  country,
+}) => {
   const [dailyData, setDailyData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -38,7 +41,27 @@ const Report = () => {
     />
   ) : null;
 
-  return <div className={styles.container}>{LineGraph}</div>;
+  const BarChart = confirmed ? (
+    <Bar
+      data={{
+        labels: ["infected", "deaths"],
+        datasets: [
+          {
+            label: country,
+            data: [confirmed.value, deaths.value],
+            backgroundColor: ["blue", "red"],
+            borderWidth: 0.5,
+          },
+        ],
+      }}
+    />
+  ) : null;
+
+  return (
+    <div className={styles.container}>
+      <>{country ? BarChart : LineGraph}</>
+    </div>
+  );
 };
 
 export default Report;

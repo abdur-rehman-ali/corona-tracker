@@ -8,7 +8,8 @@ export default class App extends Component {
     super(props)
 
     this.state = {
-      data: {}
+      data: {},
+      country: ''
     }
   }
   async componentDidMount() {
@@ -21,18 +22,19 @@ export default class App extends Component {
   handleCountryChange = async (country) => {
     const fetchedData = await fetchData(country)
     this.setState({
-      data: fetchedData
+      data: fetchedData,
+      country: country
     })
 
   }
 
   render() {
-    const { data } = this.state
+    const { data, country } = this.state
     return (
       <div className={styles.container}>
-        <Cards data={data} />
         <CountryPicker handleCountryChange={this.handleCountryChange} />
-        <Report />
+        <Cards data={data} />
+        <Report data={data} country={country} />
       </div>
     )
   }

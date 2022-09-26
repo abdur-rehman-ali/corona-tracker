@@ -9,7 +9,7 @@ import styles from "./Cards.module.css";
 
 const Cards = ({ data: { confirmed, deaths, recovered, lastUpdate } }) => {
   if (!confirmed) {
-    return;
+    return 'loading....';
   }
   return (
     <div className={styles.container}>
