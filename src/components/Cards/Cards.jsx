@@ -1,4 +1,5 @@
 import React from "react";
+import CountUp from "react-countup";
 
 const Cards = ({ data: { confirmed, deaths, recovered, lastUpdate } }) => {
   if (!confirmed) {
@@ -8,18 +9,28 @@ const Cards = ({ data: { confirmed, deaths, recovered, lastUpdate } }) => {
     <div>
       <div>
         <h1>Display confirmed</h1>
-        <p>Confirmed: {confirmed.value}</p>
-        <span>{new Date(lastUpdate).toDateString()}</span>
+        <CountUp
+          start={0}
+          end={confirmed.value}
+          duration={0.75}
+          separator=","
+        />
+        <h4>{new Date(lastUpdate).toDateString()}</h4>
       </div>
       <div>
         <h1>Display deaths</h1>
-        <p>Deaths: {deaths.value}</p>
-        <span>{new Date(lastUpdate).toDateString()}</span>
+        <CountUp start={0} end={deaths.value} duration={0.75} separator="," />
+        <h4>{new Date(lastUpdate).toDateString()}</h4>
       </div>
       <div>
         <h1>Display recoverd</h1>
-        <p>Recoverd: {recovered.value}</p>
-        <span>{new Date(lastUpdate).toDateString()}</span>
+        <CountUp
+          start={0}
+          end={recovered.value}
+          duration={0.75}
+          separator=","
+        />
+        <h4>{new Date(lastUpdate).toDateString()}</h4>
       </div>
     </div>
   );
